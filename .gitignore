@@ -713,3 +713,13 @@ sketch
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 
 # End of https://www.gitignore.io/api/node,react,csharp,dotnetcore,visualstudio,visualstudiocode,openframeworks+visualstudio
+
+
+
+# My changes
+
+.vscode
+appsettings.json
+*.db
+
+
