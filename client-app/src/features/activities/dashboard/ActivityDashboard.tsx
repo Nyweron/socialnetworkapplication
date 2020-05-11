@@ -6,7 +6,7 @@ interface IProps {
   activities: IActivity[]
 }
 
-export const ActivityDashboard: React.FC<IProps> = ({ activities }) => {
+const ActivityDashboard: React.FC<IProps> = ({ activities }) => {
   return (
     <Grid>
       <Grid.Column width={10}>
@@ -21,3 +21,5 @@ export const ActivityDashboard: React.FC<IProps> = ({ activities }) => {
     </Grid>
   )
 }
+
+export default ActivityDashboard;
