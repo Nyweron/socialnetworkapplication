@@ -11,6 +11,7 @@ interface IState {
 
 const App = () => {
   const [activities, setActivities] = useState<IActivity[]>([]);
+  const [selectedActivity, setSelectedActivity] = useState<IActivity | null>(null);
 
   useEffect(() => {
     axios.get<IActivity[]>("http://localhost:5000/api/activities").then((response) => {
@@ -18,11 +19,19 @@ const App = () => {
     });
   }, []);
 
+  const handleSelectActivity = (id: string) => {
+    setSelectedActivity(activities.filter(a => a.id === id)[0])
+  }
+
   return (
     <>
       <NavBar />
       <Container style={{ marginTop: '7em' }}>
-        <ActivityDashboard activities={activities} />
+        <ActivityDashboard
+          activities={activities}
+          selectActivity={handleSelectActivity}
+          selectedActivity={selectedActivity}
+        />
       </Container>
     </>
   );
