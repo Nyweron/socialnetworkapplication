@@ -8,9 +8,6 @@ import { observer } from "mobx-react-lite";
 import ActivityStore from "../../../app/stores/activityStore";
 
 interface IProps {
-  setSelectedActivity: (activity: IActivity | null) => void;
-  setEditMode: (id: boolean) => void;
-  editActivity: (activity: IActivity) => void;
   deleteActivity: (
     event: SyntheticEvent<HTMLButtonElement>,
     id: string
@@ -20,9 +17,6 @@ interface IProps {
 }
 
 const ActivityDashboard: React.FC<IProps> = ({
-  setSelectedActivity,
-  setEditMode,
-  editActivity,
   deleteActivity,
   submitting,
   target,
@@ -40,19 +34,11 @@ const ActivityDashboard: React.FC<IProps> = ({
         />
       </Grid.Column>
       <Grid.Column width={6}>
-        {selectedActivity && !editMode && (
-          <ActivityDetails
-            setEditMode={setEditMode}
-            setSelectedActivity={setSelectedActivity}
-          />
-        )}
+        {selectedActivity && !editMode && <ActivityDetails />}
         {editMode && (
           <ActivityForm
             key={(selectedActivity && selectedActivity.id) || 0}
-            setEditMode={setEditMode}
             activity={selectedActivity!}
-            editActivity={editActivity}
-            submitting={submitting}
           />
         )}
       </Grid.Column>
