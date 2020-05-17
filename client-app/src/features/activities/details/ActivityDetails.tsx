@@ -33,7 +33,7 @@ const ActivityDetails: React.FC = () => {
             content="Edit"
           />
           <Button
-            onClick={() => cancelSelectedActivity}
+            onClick={cancelSelectedActivity}
             basic
             color="grey"
             content="Cancel"

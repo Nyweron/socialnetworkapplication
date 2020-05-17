@@ -2,7 +2,6 @@ import { observable, action, computed } from "mobx";
 import { createContext, SyntheticEvent } from "react";
 import { IActivity } from "../models/activity";
 import agent from "../api/agent";
-import { timingSafeEqual } from "crypto";
 
 class ActivityStore {
   @observable activityRegistry = new Map();
