@@ -8,7 +8,6 @@ import { observer } from "mobx-react-lite";
 import ActivityStore from "../../../app/stores/activityStore";
 
 interface IProps {
-  activities: IActivity[];
   setSelectedActivity: (activity: IActivity | null) => void;
   setEditMode: (id: boolean) => void;
   editActivity: (activity: IActivity) => void;
@@ -21,7 +20,6 @@ interface IProps {
 }
 
 const ActivityDashboard: React.FC<IProps> = ({
-  activities,
   setSelectedActivity,
   setEditMode,
   editActivity,
