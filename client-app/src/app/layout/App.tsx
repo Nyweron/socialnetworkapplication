@@ -27,7 +27,10 @@ const App = () => {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/activities" component={ActivityDashboard} />
         <Route path="/activities/:id" component={ActivityDetails} />
-        <Route path="/createactivity" component={ActivityForm} />
+        <Route
+          path={["/createactivity", "/manage/:id"]}
+          component={ActivityForm}
+        />
       </Container>
     </>
   );
