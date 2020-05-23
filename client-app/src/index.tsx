@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from "./app/layout/App";
+import "mobx-react-lite/batchingForReactDom";
 import * as serviceWorker from "./serviceWorker";
 
 import "semantic-ui-css/semantic.min.css";
