@@ -3,12 +3,10 @@ import ReactDOM from "react-dom";
 import { Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import "react-toastify/dist/ReactToastify.min.css";
-import App from "./app/layout/App";
-import "mobx-react-lite/batchingForReactDom";
-import * as serviceWorker from "./serviceWorker";
-
 import "semantic-ui-css/semantic.min.css";
 import "./app/layout/style.css";
+import App from "./app/layout/App";
+import * as serviceWorker from "./serviceWorker";
 import ScrollToTop from "./app/layout/ScrollToTop";
 
 export const history = createBrowserHistory();
