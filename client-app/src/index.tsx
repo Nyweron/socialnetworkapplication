@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import "react-toastify/dist/ReactToastify.min.css";
 import App from "./app/layout/App";
 import "mobx-react-lite/batchingForReactDom";
 import * as serviceWorker from "./serviceWorker";
