@@ -8,12 +8,10 @@ interface IProps extends FieldRenderProps<Date, any>, FormFieldProps {}
 const DateInput: React.FC<IProps> = ({
   input,
   width,
-  options,
   placeholder,
   date = false,
   time = false,
-  meta: touched,
-  error,
+  meta: { touched, error },
   ...rest
 }) => {
   return (
@@ -22,6 +20,8 @@ const DateInput: React.FC<IProps> = ({
         placeholder={placeholder}
         value={input.value || null}
         onChange={input.onChange}
+        onBlur={input.onBlur}
+        onKeyDown={(e) => e.preventDefault()}
         date={date}
         time={time}
         // {...rest}
