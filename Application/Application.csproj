@@ -6,6 +6,7 @@
   <ItemGroup>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0"/>
     <PackageReference Include="FluentValidation.AspNetCore" Version="9.0.0-preview5"/>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" Version="3.0.0-preview3-19153-02"/>
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
