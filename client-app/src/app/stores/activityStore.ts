@@ -28,6 +28,8 @@ export default class ActivityStore {
     const sortedActivities = activities.sort(
       (a, b) => a.date.getTime() - b.date.getTime()
     );
+    console.log(sortedActivities);
+
     return Object.entries(
       sortedActivities.reduce((activities, activity) => {
         const date = activity.date.toISOString().split("T")[0];
