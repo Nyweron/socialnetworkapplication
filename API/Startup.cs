@@ -18,6 +18,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using Persistence;
 
 namespace API
@@ -56,7 +57,7 @@ namespace API
         .AddFluentValidation(cfg =>
         {
           cfg.RegisterValidatorsFromAssemblyContaining<Create>();
-        });
+        }).AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
       var builder = services.AddIdentityCore<AppUser>();
       var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
