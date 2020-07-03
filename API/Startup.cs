@@ -1,7 +1,6 @@
 using System.Text;
 using Application.Activities;
 using Application.Interfaces;
-using Application.Photos;
 using API.Middleware;
 using AutoMapper;
 using Domain;
