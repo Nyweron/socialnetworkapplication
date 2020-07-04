@@ -56,7 +56,11 @@ namespace Infrastructure.Photos
 
     public string DeletePhoto(string publicId)
     {
-      throw new System.NotImplementedException();
+      var deleteParams = new DeletionParams(publicId);
+
+      var result = _cloundinary.Destroy(deleteParams);
+
+      return result.Result == "ok" ? result.Result : null;
     }
 
   }
