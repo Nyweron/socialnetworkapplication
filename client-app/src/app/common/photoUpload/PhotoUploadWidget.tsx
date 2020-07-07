@@ -2,15 +2,17 @@ import React, { Fragment, useState, useEffect } from "react";
 import { Header, Grid, Image } from "semantic-ui-react";
 import { observer } from "mobx-react-lite";
 import PhotoWidgetDropzone from "./PhotoWidgetDropzone";
+import PhotoWidgetCropper from "./PhotoWidgetCropper";
 
 export const PhotoUploadWidget = () => {
   const [files, setFiles] = useState<any[]>([]);
+  const [image, setImage] = useState<Blob | null>(null);
 
   useEffect(() => {
     return () => {
       files.forEach((file) => URL.revokeObjectURL(file.preview));
     };
-  }, []);
+  }, [files]);
 
   return (
     <Fragment>
@@ -23,6 +25,12 @@ export const PhotoUploadWidget = () => {
         <Grid.Column width={1} />
         <Grid.Column width={4}>
           <Header sub color="teal" content="Step 2 - Resize image" />
+          {files.length > 0 && (
+            <PhotoWidgetCropper
+              setImage={setImage}
+              imagePreview={files[0].preview}
+            />
+          )}
         </Grid.Column>
         <Grid.Column width={1} />
         <Grid.Column width={4}>
