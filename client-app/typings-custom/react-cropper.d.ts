@@ -1,16 +1,19 @@
 declare module "react-cropper" {
-  import Cropper from "cropperjs";
+  import * as cropperjs from "cropperjs";
   import * as React from "react";
 
   type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
 
-  interface ReactCropperProps
-    extends Cropper.Options,
+  export interface ReactCropperProps
+    extends cropperjs.CropperOptions,
       Omit<React.HTMLProps<HTMLImageElement>, "data" | "ref"> {
-    ref?: React.LegacyRef<ReactCropper>;
+    ref?:
+      | string
+      | React.RefObject<Cropper>
+      | ((cropper: null | ReactCropper) => any);
   }
 
-  interface ReactCropper extends Cropper {} // tslint:disable-line no-empty-interface
+  interface ReactCropper extends cropperjs {} // tslint:disable-line no-empty-interface
   class ReactCropper extends React.Component<ReactCropperProps> {
     on(eventname: string, callback: () => void): void;
   }

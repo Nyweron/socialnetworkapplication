@@ -17,7 +17,6 @@ const PhotoWidgetCropper: React.FC<IProps> = ({ setImage, imagePreview }) => {
     ) {
       return;
     }
-
     cropper &&
       cropper.current &&
       cropper.current.getCroppedCanvas().toBlob((blob: any) => {
