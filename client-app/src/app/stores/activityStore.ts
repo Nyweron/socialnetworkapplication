@@ -26,7 +26,7 @@ export default class ActivityStore {
   @observable loading = false;
   @observable.ref hubConnection: HubConnection | null = null;
 
-  @action createHunConnection = (activityId: string) => {
+  @action createHubConnection = (activityId: string) => {
     this.hubConnection = new HubConnectionBuilder()
       .withUrl("http://localhost:5000/chat", {
         accessTokenFactory: () => this.rootStore.commonStore.token!,
@@ -36,9 +36,9 @@ export default class ActivityStore {
 
     this.hubConnection
       .start()
-      .then(() => console.log(this.hubConnection!.state))
+      .then(() => console.log("STATECON:", this.hubConnection!.state))
       .then(() => {
-        console.log("Attemting to join group", activityId);
+        console.log("Attempting to join group");
         this.hubConnection!.invoke("AddToGroup", activityId);
       })
       .catch((error) => console.log("Error establishing connection: ", error));
@@ -82,8 +82,6 @@ export default class ActivityStore {
     const sortedActivities = activities.sort(
       (a, b) => a.date.getTime() - b.date.getTime()
     );
-    console.log(sortedActivities);
-
     return Object.entries(
       sortedActivities.reduce((activities, activity) => {
         const date = activity.date.toISOString().split("T")[0];
@@ -236,7 +234,7 @@ export default class ActivityStore {
   @action cancelAttendance = async () => {
     this.loading = true;
     try {
-      agent.Activities.unattend(this.activity!.id);
+      await agent.Activities.unattend(this.activity!.id);
       runInAction(() => {
         if (this.activity) {
           this.activity.attendees = this.activity.attendees.filter(
