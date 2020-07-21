@@ -15,7 +15,7 @@ namespace Application.Activities
     public class ActivitiesEnvelope
     {
       public List<ActivityDto> Activities { get; set; }
-      public int ActivitiesCount { get; set; }
+      public int ActivityCount { get; set; }
     }
 
     public class Query : IRequest<ActivitiesEnvelope>
@@ -52,7 +52,7 @@ namespace Application.Activities
         return new ActivitiesEnvelope
         {
           Activities = _mapper.Map<List<Activity>, List<ActivityDto>>(activities),
-            ActivitiesCount = queryable.Count()
+            ActivityCount = queryable.Count()
         };
       }
     }
