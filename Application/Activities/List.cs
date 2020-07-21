@@ -27,7 +27,7 @@ namespace Application.Activities
         Limit = limit;
         Offset = offset;
         IsGoing = isGoing;
-        IsHost = isGoing;
+        IsHost = isHost;
         StartDate = startDate ?? DateTime.Now;
       }
 
@@ -79,6 +79,5 @@ namespace Application.Activities
         };
       }
     }
-
   }
 }
