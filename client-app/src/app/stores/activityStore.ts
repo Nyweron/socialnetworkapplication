@@ -1,11 +1,4 @@
-import {
-  observable,
-  action,
-  computed,
-  runInAction,
-  keys,
-  reaction,
-} from "mobx";
+import { observable, action, computed, runInAction, reaction } from "mobx";
 import { SyntheticEvent } from "react";
 import { IActivity } from "../models/activity";
 import agent from "../api/agent";
@@ -18,7 +11,6 @@ import {
   HubConnectionBuilder,
   LogLevel,
 } from "@microsoft/signalr";
-import { th } from "date-fns/locale";
 
 const LIMIT = 2;
 
