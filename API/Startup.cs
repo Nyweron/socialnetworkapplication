@@ -153,12 +153,12 @@ namespace API
       app.UseXfo(opt => opt.Deny());
       app.UseCspReportOnly(opt => opt
         .BlockAllMixedContent()
-        .StyleSources(s => s.Self())
+        .StyleSources(s => s.Self().CustomSources("https://fonts.googleapis.com"))
         .FontSources(s => s.Self())
         .FormActions(s => s.Self())
         .FrameAncestors(s => s.Self())
         .ImageSources(s => s.Self())
-        .ScriptSources(s => s.Self())
+        .ScriptSources(s => s.Self().CustomSources("sha256-ma5XxS1EBgt17N22Qq31rOxxRWRfzUTQS1KOtfYwuNo="))
       );
 
       // app.UseHttpsRedirection();
